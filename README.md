@@ -1,4 +1,13 @@
-# onlinelibrary
+# Online Book library
+## Credintials
+- The Database url :mysql://localhost:3306/sprint_security
+- Database Name : sprint_security
+- Database UserName : root
+- Database Password : 
+- Port : 8085
+
+# Outputs of Postman
+
 ## Registration Admin
 <img src="screenshots\ss01.PNG"  />
 
