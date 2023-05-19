@@ -8,6 +8,9 @@
 
 # Outputs of Postman
 
+## Registration As Both Admin And Customer
+<img src="screenshots\ss35.PNG"  />
+
 ## Registration Admin
 <img src="screenshots\ss01.PNG"  />
 

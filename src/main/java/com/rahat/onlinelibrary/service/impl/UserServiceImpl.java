@@ -47,7 +47,10 @@ public class UserServiceImpl implements UserService {
                 .lastName(requestModel.getLastName())
                 .password(passwordEncoder.encode(requestModel.getPassword()))
 //                .roles(Objects.equals(requestModel.getRole(), "ADMIN") ?(Role.ADMIN,Role.CUSTOMER):Role.CUSTOMER)
-                .role(Objects.equals(requestModel.getRole(), "ADMIN") ? Role.ADMIN : Role.CUSTOMER)
+                .role1(Objects.equals(requestModel.getRoles().get(0), "ADMIN") ? Role.ADMIN : Role.CUSTOMER)
+                .role2(requestModel.getRoles().size()==2?(
+
+                        Objects.equals(requestModel.getRoles().get(1), "ADMIN") ? Role.ADMIN : Role.CUSTOMER):(Objects.equals(requestModel.getRoles().get(0), "ADMIN") ? Role.ADMIN : Role.CUSTOMER))
                 .build();
         userRepository.save(userEntity);
         AuthenticationResponse authRes = AuthenticationResponse.builder()

@@ -30,13 +30,17 @@ public class UserEntity implements UserDetails {
 
 
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private Role role1;
+
+    @Enumerated(EnumType.STRING)
+    private Role role2;
+
 
 //    private List<Role> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of(new SimpleGrantedAuthority(role1.name()) , new SimpleGrantedAuthority(role2.name()));
 //        return List.of(new SimpleGrantedAuthority(''CUSTOMER''));
 
     }
