@@ -1,6 +1,6 @@
 package com.rahat.onlinelibrary.entity;
 
 public enum Role {
-    USER,
+    CUSTOMER,
     ADMIN;
 }

@@ -28,7 +28,7 @@ public class SecurityConfig {
                 .requestMatchers("/user/register","user/login")
                 .permitAll()
                 .requestMatchers("/books/author/{authorName}","/books/id/{bookId}","/books/all")
-                .hasAnyAuthority("ADMIN","USER")
+                .hasAnyAuthority("ADMIN","CUSTOMER")
                 .requestMatchers("/books/create","/books/update","/books/delete")
                 .hasAuthority("ADMIN")
                 .anyRequest()

@@ -1,11 +1,15 @@
 package com.rahat.onlinelibrary.utils;
 
 
+import com.rahat.onlinelibrary.entity.UserEntity;
+import com.rahat.onlinelibrary.exception.NoBooksFoundException;
+import com.rahat.onlinelibrary.repository.UserRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +20,10 @@ import java.util.Map;
 import java.util.function.Function;
 
 @Component
+@RequiredArgsConstructor
 public class JwtService {
+
+    private final UserRepository usersRepository;
 
     private static final String SECRET_KEY = "26452948404D635166546A576E5A7234753778214125442A462D4A614E645267";
 
@@ -37,6 +44,11 @@ public class JwtService {
 
     public Boolean isTokenValid(String token, UserDetails userDetails){
         final String username = extractUsername(token);
+        UserEntity userEntity=  usersRepository.findByEmail(username);
+        if(userEntity == null){
+            throw new NoBooksFoundException("This token is invalid.");
+//            return false;
+        }
         return (username.equals(userDetails.getUsername())) && !isTokenExpired(token);
     }
 
