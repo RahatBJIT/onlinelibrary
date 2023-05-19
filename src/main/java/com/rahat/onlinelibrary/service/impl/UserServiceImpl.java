@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserService {
                     )
             );
         } catch (Exception e) {
-            throw new EmailPasswordNotMatchException("The Email and Password is not valid.");
+            throw new EmailPasswordNotMatchException("Wrong Email And Password Information");
 
         }
 

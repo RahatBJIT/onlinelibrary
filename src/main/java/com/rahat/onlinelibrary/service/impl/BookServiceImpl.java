@@ -116,7 +116,8 @@ public class BookServiceImpl implements BookService {
     public BookEntity findByAuthorNameAndBookName(String authorName, String bookName) {
         BookEntity book = bookRepository.findByAuthorNameAndBookName(authorName, bookName);
         if (book == null) {
-            throw new NoBooksFoundException("There is no books. Please Create New Books");
+            String errorMsg = "There is no books with this author "+authorName+ " named this "+bookName;
+            throw new NoBooksFoundException(errorMsg);
         }
         return book;
     }
