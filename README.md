@@ -83,7 +83,7 @@
 
 <img src="screenshots\ss20.PNG"  />
 
-## Getting Books By Author Name (Matching Prefix)
+## Getting Books By Author Name (Returns on any kind of Matching)
 <img src="screenshots\ss21.PNG"  />
 
 ## When There Are No Books Containg This Author Name

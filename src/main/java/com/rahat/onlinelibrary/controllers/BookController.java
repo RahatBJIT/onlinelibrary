@@ -48,7 +48,7 @@ public class BookController {
     public void deleteBook(@PathVariable Long bookId){
          bookService.deleteBook(bookId);
     }
-    @GetMapping("/{authorName}/{bookName}")
+    @GetMapping("/author-title/{authorName}/{bookName}")
     public BookEntity findByAuthorNameAndBookName(@PathVariable String authorName, @PathVariable String bookName){
       return   bookService.findByAuthorNameAndBookName(authorName,bookName);
     }
